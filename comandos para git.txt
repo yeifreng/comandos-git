@@ -1,0 +1,76 @@
+https://git-scm.com/book/es/v2/Fundamentos-de-Git-Obteniendo-un-repositorio-Git
+https://www.youtube.com/watch?v=3GymExBkKjE&list=PLFQhmoqcD_z-hLkAc9qKP4RMpCuO4jskf&index=1&t=1893s&ab_channel=MoureDevbyBraisMoure
+
+https://www.pildorasinformaticas.es/course-status/  ---------- angular routing 3 min 11:45
+
+
+
+*******Configurando Git por primera vez ---- debemos ingresar un usuario y un correo
+
+	git config --global user.name "yeifreng"
+	git config --global user.email yeifrenjose@gmail.com
+
+*******Inicializando un repositorio en un directorio existente
+
+	Abrir la terminal dentro de la carpeta del proyecto y correr el comando
+	git init ---> para iniciar git
+	git status ---> para ver que ficheros debemos añadir
+
+*******Iniciar a controlar versiones de los archivos existentes y hacer una confirmación inicial
+
+	git add [nombre_fichero] ---> para añadir los ficheros existentes y tener una confirmación inicial
+	git commit -m 'comentario del commit' ---->Agregar actualizaciones del codigo, hacerlo desde el primer add
+
+*******Mirar el historial de los commit realizados en el proyecto
+	
+	git log
+	git log --oneline
+	git log --graph --decorate --all --oneline --> muestra tooooda la rama
+	git config --global alias.(nombre-alias) "log --graph --decorate --all --oneline" -->creamos un alias de toda esa linea
+
+*******Deshacer cambios de un archivo si aun no le has echo commit pero que ya le has echo add
+
+	git checkout [nombre-del-archivo]
+
+*******Si tenemos varios archivos para hacer commit y queremos reversar un add de alguno de ellos
+
+	git rm --cached [nombre-del-archivo] --> con esto hacemos que, el archivo que estaba listo para commit, vuelva 
+	a la parte donde pide ser agregado con add
+
+*******Como saber que se a cambiado en un archivo antes de hacer add y commit
+
+	git diff --> con este comando podemos ver que archivo se modifico, que se modifico, y porque valor fue modificado
+
+*******Como movernos a cualquier commit de la rama
+	
+	git checkout [id del commit]
+	git log --graph --decorate --all --oneline --> muestra tooooda la rama para saber que id tomar y movernos a ese
+
+*******Usos de checkout
+
+	git checkout [nombre-del-archivo] --> deshacer cambios de un archivo que aun no se le ha echo commit
+	git checkout [id del commit] --> con esto nos movemos a cualquier commit de la rama
+	git checkout -b [nombre-de-rama-nueva] --> creamos una rama nueva, para trabajar una parte del proyecto desde otra rama
+	git checkout [nombre-de-la-rama] --> con esto lo que hacemos es movernos entre las ramas existentes
+
+*******Unir las ramas a la rama master cuando ya queramos unir todo el proyecto
+
+	git merge [nombre-de-la-rama-a-unir-en-la-master] --> hacer esto desde la rama master
+
+*******Subir todo a github
+
+	Ingersamos a github, creamos nuevo repositorio y seguimos instrucciones de comandos para subir los archivos al repositorio
+
+*******GIT PUSH Y GIT PULL
+	
+	GIT PUSH --> Con este comando subimos los archivos comiteados de manera local al repositorio
+	GIT PULL --> Con este comando nos traemos los archivos nuevos del repositorio a nuestro servicio local
+
+*******Eliminacion de ramas
+
+	git branch -d [nombre-de-la-rama] --> esto elimina la rama de forma local, es decir, desde mi servidor local
+	git push origin --delete [nombre-de-la-rama] --> esto elimina la rama de forma remota, es decir, desde github
+
+*******Volver todos los archivos a su version anterior antes de hacer commit, (asi ya le hallas echo add)
+
+	git reset --hard --> con esto, los archivos modificados, vuelven a su ultima version comiteada
